@@ -10,8 +10,12 @@
 <body class="container">
     <?php include("banner.php"); ?>
 
-    <div class="bg-secondary text-right py-3 px-1">
-        <a href="nuevo_alumno.php" class="btn btn-primary">Nuevo</a>
-    </div>
+    <?php 
+        include("../models/DB.php");
+    
+        $connection = DBConnection::getConnection();
+
+        var_dump($connection);
+    ?>
 </body>
 </html>
