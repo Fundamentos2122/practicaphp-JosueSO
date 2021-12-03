@@ -52,7 +52,19 @@ class Alumno {
     }
 
     public function setFoto($foto) {
-        $this->_foto = $foto;
+        $this->_foto = base64_encode($foto);
+    }
+
+    public function returnJson() {
+        $alumno = array();
+
+        $alumno["id"] = $this->getId();
+        $alumno["cve_unica"] = $this->getCveUnica();
+        $alumno["nombre_completo"] = $this->getNombreCompleto();
+        $alumno["fecha_nacimiento"] = $this->getFechaNacimiento();
+        $alumno["foto"] = $this->getFoto();
+
+        echo json_encode($alumno);
     }
 }
 

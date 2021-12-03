@@ -10,12 +10,29 @@
 <body class="container">
     <?php include("banner.php"); ?>
 
-    <?php 
-        include("../models/DB.php");
-    
-        $connection = DBConnection::getConnection();
-
-        var_dump($connection);
-    ?>
+    <h4 class="border-bottom py-2">Agregar alumno</h4>
+    <form action="../controllers/alumnosController.php" method="post" class="row" autocomplete="off" enctype="multipart/form-data">
+        <input type="hidden" name="_method" value="POST">
+        <div class="col-6 form-group">
+            <label for="cve_unica">Clave única</label>
+            <input type="text" name="cve_unica" class="form-control">
+        </div>
+        <div class="col-6 form-group">
+            <label for="nombre_completo">Nombre Completo</label>
+            <input type="text" name="nombre_completo" class="form-control">
+        </div>
+        <div class="col-6 form-group">
+            <label for="fecha_nacimiento">Fecha de nacimiento</label>
+            <input type="date" name="fecha_nacimiento" class="form-control">
+        </div>
+        <div class="col-6 form-group">
+            <label for="foto">Foto</label>
+            <input type="file" name="foto" class="form-control">
+        </div>
+        <div class="col-12 form-group text-center">
+            <input type="submit" value="Guardar" class="btn btn-success">
+            <a href="index.php" class="btn btn-secondary">Cancelar</a>
+        </div>
+    </form>
 </body>
 </html>
