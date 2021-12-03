@@ -9,6 +9,8 @@ try {
 catch(PDOException $e) {
     error_log("Error de conexión - " . $e, 0);
 
+    header("Location: http://localhost/practicaphp/views/error.php?error=ERROR DE CONEXIÓN A LA BASE DE DATOS");
+
     exit();
 }
 
@@ -26,7 +28,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             if($query->rowCount() == 0) {
                 //No se encontró al usuario
-
+                header("Location: http://localhost/practicaphp/views/login/index.php?error=Usuario y/o contraseña inválida");
+                
                 exit();
             }
 
@@ -46,6 +49,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         catch(PDOException $e) {
             error_log("Error en query - " . $e, 0);
+
+            header("Location: http://localhost/practicaphp/views/error.php?error=ERROR DE INICIO DE SESIÓN");
 
             exit();
         }

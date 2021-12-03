@@ -30,6 +30,11 @@
         <h4>Inicio de sesión</h4>
         <form action="../../controllers/loginController.php" method="POST">
             <input type="hidden" name="_method" value="POST">
+            <?php 
+                if (array_key_exists("error", $_GET)){
+                    echo '<div class="alert alert-danger show">' . $_GET["error"] . '</div>';
+                }
+            ?>
             <div class="form-group">
                 <label for="nombre_usuario">Nombre de Usuario</label>
                 <input type="text" name="nombre_usuario" class="form-control">
