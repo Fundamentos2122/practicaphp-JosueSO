@@ -1,3 +1,13 @@
+<?php 
+    //Verificar que el usuario esté logueado
+    session_start();
+
+    if (!array_key_exists("nombre_usuario", $_SESSION)) {
+        header("Location: http://localhost/practicaphp/views/login/");
+        exit();
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

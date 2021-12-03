@@ -1,3 +1,19 @@
+<?php 
+    //Verificar que el usuario esté logueado
+    session_start();
+
+    if (!array_key_exists("nombre_usuario", $_SESSION)) {
+        header("Location: http://localhost/practicaphp/views/login/");
+        exit();
+    }
+
+    //Validar que el usuario sea administrador
+    if($_SESSION["tipo_rol"] !== "administrador") {
+        header("Location: http://localhost/practicaphp/views/");
+        exit();
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
